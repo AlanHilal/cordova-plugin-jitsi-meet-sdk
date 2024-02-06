@@ -68,6 +68,13 @@
             <string>For meeting purpose</string>
         </config-file>
 
+        <!-- Needed to show CallKit UI -->
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <array>
+                <string>voip</string>
+            </array>
+        </config-file>
+
         <header-file src="src/ios/CDVJitsiMeet.h" />
         <source-file src="src/ios/CDVJitsiMeet.m" />
 
