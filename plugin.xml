@@ -68,12 +68,19 @@
             <string>For meeting purpose</string>
         </config-file>
 
+        <!-- Needed to show CallKit UI -->
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <array>
+                <string>voip</string>
+            </array>
+        </config-file>
+
         <header-file src="src/ios/CDVJitsiMeet.h" />
         <source-file src="src/ios/CDVJitsiMeet.m" />
 
         <podspec>
             <pods use-frameworks="true" >
-                <pod name="JitsiMeetSDK" spec="3.10.4" />
+                <pod name="JitsiMeetSDK" spec="9.2.2" />
             </pods>
         </podspec>
 

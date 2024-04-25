@@ -72,11 +72,7 @@
         [builder setAudioMuted:audioMuted];
         
         BOOL videoMuted = [[meetingOptions objectForKey:@"videoMuted"] boolValue];
-        [builder setVideoMuted:videoMuted];
-        
-        BOOL welcomePageEnabled = [[meetingOptions objectForKey:@"welcomePageEnabled"] boolValue];
-        [builder setWelcomePageEnabled:welcomePageEnabled];
-        
+        [builder setVideoMuted:videoMuted]; 
         
         //flags
         NSDictionary *flags = [meetingOptions objectForKey:@"flags"];
@@ -226,4 +222,15 @@
     [self.commandDelegate sendPluginResult:self.result
                                 callbackId:self.lastCallbackId];
 }
+
+- (void)readyToClose:(NSDictionary *)data {
+    NSLog(@"Ready to close");
+    
+    self.result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                 messageAsString:@"READY_TO_CLOSE"];
+    [self.result setKeepCallbackAsBool:YES];
+    [self.commandDelegate sendPluginResult:self.result
+                                callbackId:self.lastCallbackId];
+}
+
 @end
